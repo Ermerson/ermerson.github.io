@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@theme inline {
+  --font-sans: var(--font-geist), Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-ink: #171717;
+  --color-body: #4d4d4d;
+  --color-mute: #8f8f8f;
+  --color-faint: #a1a1a1;
+  --color-hairline: #ebebeb;
+  --color-hairline-soft: #f2f2f2;
+  --color-canvas: #fafafa;
+  --color-elevated: #ffffff;
+  --color-link: #0070f3;
+  --color-link-deep: #0761d1;
+  --color-link-soft: #d3e5ff;
+  --color-violet: #7928ca;
+  --color-cyan: #50e3c2;
+  --color-pink: #ff0080;
+  --color-magenta: #eb367f;
+  --color-gradient-develop-start: #007cf0;
+  --color-gradient-develop-end: #00dfd8;
+  --color-gradient-preview-start: #7928ca;
+  --color-gradient-preview-end: #ff0080;
+  --color-gradient-ship-start: #ff4d4d;
+  --color-gradient-ship-end: #f9cb28;
+
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
+  --spacing-section: 8rem;
+
+  --text-display-xl: 3rem;
+  --text-display-xl--line-height: 3rem;
+  --text-display-xl--letter-spacing: -0.15rem;
+  --text-heading-lg: 2rem;
+  --text-heading-lg--line-height: 2.5rem;
+  --text-heading-lg--letter-spacing: -0.08rem;
+  --text-heading-md: 1.25rem;
+  --text-heading-md--line-height: 1.75rem;
+  --text-heading-md--letter-spacing: -0.025rem;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.5rem;
+  --text-body-md: 0.875rem;
+  --text-body-md--line-height: 1.25rem;
+  --text-body-sm: 0.75rem;
+  --text-body-sm--line-height: 1rem;
+  --text-button-lg: 1rem;
+  --text-button-lg--line-height: 1.25rem;
+  --text-button-md: 0.875rem;
+  --text-button-md--line-height: 1.25rem;
+  --text-mono-eyebrow: 0.75rem;
+  --text-mono-eyebrow--line-height: 1rem;
+
+  --radius-control: 6px;
+  --radius-card: 12px;
+  --radius-panel: 16px;
+  --radius-category: 64px;
+  --radius-pill: 100px;
+}
+
+:root {
+  color-scheme: light;
+  --color-fd-background: #fafafa;
+  --color-fd-foreground: #171717;
+  --color-fd-muted: #f2f2f2;
+  --color-fd-muted-foreground: #4d4d4d;
+  --color-fd-popover: #ffffff;
+  --color-fd-popover-foreground: #171717;
+  --color-fd-card: #ffffff;
+  --color-fd-card-foreground: #171717;
+  --color-fd-border: #ebebeb;
+  --color-fd-primary: #171717;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-secondary: #f2f2f2;
+  --color-fd-secondary-foreground: #171717;
+  --color-fd-accent: #f2f2f2;
+  --color-fd-accent-foreground: #171717;
+  --color-fd-ring: #0070f3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #fafafa;
+  color: #171717;
+  font-family: var(--font-geist), Arial, sans-serif;
+}
+
+.home-hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -28%;
+  right: -14%;
+  width: min(82vw, 920px);
+  height: min(82vw, 920px);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 22% 30%, rgb(80 227 194 / 22%), transparent 43%),
+    radial-gradient(ellipse at 55% 24%, rgb(0 124 240 / 18%), transparent 43%),
+    radial-gradient(ellipse at 68% 54%, rgb(121 40 202 / 16%), transparent 46%),
+    radial-gradient(ellipse at 44% 72%, rgb(255 0 128 / 12%), transparent 48%),
+    radial-gradient(ellipse at 82% 80%, rgb(249 203 40 / 13%), transparent 42%);
+  content: '';
+  filter: blur(42px);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .home-hero::before {
+    top: -12%;
+    right: -45%;
+    width: 130vw;
+    height: 130vw;
+    opacity: 0.72;
+  }
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0 !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+::selection {
+  background: #d3e5ff;
+  color: #171717;
+}
