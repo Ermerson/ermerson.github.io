@@ -58,17 +58,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Instala Node.js sem configurar cache
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
+      # Instala pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
 
-      - name: Configure pnpm cache
+      # Configura cache após instalar pnpm
+      - name: Setup pnpm cache
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -79,3 +82,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
