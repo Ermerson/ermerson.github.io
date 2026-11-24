@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider search={{ options: {type: 'static', }, }}>{children}</RootProvider>
       </body>
     </html>
   );
