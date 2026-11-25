@@ -22,7 +22,7 @@ export default function HomePage() {
                 Sou Augusto Galego, engenheiro de software e educador. Escrevo sobre sistemas, algoritmos e o caminho de quem trabalha com tecnologia.
               </p>
               <div className="mt-xl flex flex-col gap-sm sm:flex-row">
-                <Link className="inline-flex min-h-12 items-center justify-center gap-sm rounded-pill bg-ink px-lg text-base font-medium text-white transition-colors hover:bg-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link" href="/docs">
+                <Link className="inline-flex min-h-12 items-center justify-center gap-sm rounded-pill bg-ink px-lg text-base font-medium text-on-ink transition-colors hover:bg-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link" href="/docs">
                   Explorar artigos <ArrowRight aria-hidden="true" className="size-4" />
                 </Link>
                 <Link className="inline-flex min-h-12 items-center justify-center gap-sm rounded-pill border border-hairline bg-elevated px-lg text-base font-medium text-ink transition-colors hover:bg-hairline-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link" href="#sobre">
@@ -93,7 +93,7 @@ export default function HomePage() {
               <h2 className="text-heading-lg font-semibold text-ink" id="about-heading">Da engenharia ao ensino, sempre com curiosidade.</h2>
               <p className="mt-md text-body-lg text-body">CTO e engenheiro backend, com mais de 10 anos de experiência e uma comunidade de tecnologia com 145 mil inscritos.</p>
             </div>
-            <a className="inline-flex min-h-12 items-center justify-center gap-sm justify-self-start rounded-pill bg-ink px-lg text-base font-medium text-white transition-colors hover:bg-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link lg:justify-self-end" href="#">
+            <a className="inline-flex min-h-12 items-center justify-center gap-sm justify-self-start rounded-pill bg-ink px-lg text-base font-medium text-on-ink transition-colors hover:bg-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link lg:justify-self-end" href="#">
               Fale comigo <ArrowUpRight aria-hidden="true" className="size-4" />
             </a>
           </div>
@@ -107,4 +107,3 @@ export default function HomePage() {
     </>
   );
 }
-

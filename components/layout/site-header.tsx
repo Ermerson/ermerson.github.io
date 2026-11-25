@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useSyncExternalStore } from 'react';
-import { Menu, SunMedium, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { CustomLogo } from '@/components/home/custom-logo';
 import { useTheme } from 'fumadocs-ui/provider/base';
 import { cn } from 'cn';
@@ -19,8 +19,7 @@ const navigation = [
 ];
 
 const iconButton =
-  'inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground';
-
+  'inline-flex size-8 items-center justify-center rounded-control border border-hairline bg-elevated text-body transition-colors hover:bg-hairline-soft hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link';
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,9 +37,7 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <a className="ml-sm inline-flex min-h-10 items-center gap-xs rounded-control bg-ink px-md text-button-md font-medium text-white transition-colors hover:bg-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link" href="#">
-            Contato 
-          </a>
+          <ThemeToggle className="ml-sm" />
         </nav>
 
         <button
@@ -62,9 +59,9 @@ export function SiteHeader() {
               {label}
             </Link>
           ))}
-          <a className="mt-xs flex min-h-11 items-center justify-center gap-xs rounded-control bg-ink px-md text-button-md font-medium text-white" href="#">
-            Contato 
-          </a>
+          <div className="mt-xs flex justify-center">
+            <ThemeToggle />
+          </div>
         </nav>
       )}
     </header>
@@ -74,7 +71,7 @@ export function SiteHeader() {
 const subscribeNever = () => () => {};
 
 export function ThemeToggle({ className }: { className?: string}) {
-  const {theme, resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const hydrated = useSyncExternalStore(
     subscribeNever,
@@ -82,42 +79,22 @@ export function ThemeToggle({ className }: { className?: string}) {
     () => false,
   );
 
-  if (!hydrated)
-    return (
+  const isDark = hydrated && resolvedTheme === 'dark';
+
+  return (
     <button
       type="button"
-      aria-label="Toggle theme"
+      aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
+      title={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
       className={cn(iconButton, className)}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       <HugeiconsIcon 
-        icon={SunMediumIcon}
+        icon={isDark ? SunMediumIcon : Moon02Icon}
         strokeWidth={2}
         size={18}
-        className="dark:hidden"
-      />
-      <HugeiconsIcon 
-        icon={Moon02Icon}
-        strokeWidth={2}
-        size={18}
-        className="hidden dark:block"
+        aria-hidden="true"
       />
     </button>
-  );
-
-  return(
-    <div>
-      <HugeiconsIcon 
-          icon={SunMediumIcon}
-          strokeWidth={2}
-          size={18}
-          className="dark:hidden"
-        />
-      <HugeiconsIcon 
-        icon={Moon02Icon}
-        strokeWidth={2}
-        size={18}
-        className="hidden dark:block"
-        />
-    </div>
   );
 }
